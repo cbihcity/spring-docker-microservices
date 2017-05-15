@@ -25,7 +25,7 @@ public class JournalRest {
             list = service.findAll();
         return list;
     }
-    @RequestMapping("/inser-pg")
+    @RequestMapping("/insert-pg")
     public String home() throws ParseException {
         service.insertData();
         return "Data inserted succesfull";

@@ -26,7 +26,7 @@ public class JournalController {
         return list;
     }
 
-    @RequestMapping("/insert_mongo")
+    @RequestMapping("/insert-mongo")
     public String home() throws ParseException {
         service.insertData();
         return "Data inserted succesfull";
