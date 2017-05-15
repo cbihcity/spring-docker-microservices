@@ -19,20 +19,20 @@ public class JournalController {
     @Autowired
     JournalServ service;
 
-    @RequestMapping(name = "/info")
+    @RequestMapping(name = "/info-mongo")
     public List<Journal> showJournal() {
         List<Journal> list = new ArrayList<>();
         list = service.findAll();
         return list;
     }
 
-    @RequestMapping("/insert")
+    @RequestMapping("/insert_mongo")
     public String home() throws ParseException {
         service.insertData();
         return "Data inserted succesfull";
     }
 
-    @RequestMapping("/del")
+    @RequestMapping("/del-mongo")
     public void del() throws ParseException {
         service.deleteAll();
     }

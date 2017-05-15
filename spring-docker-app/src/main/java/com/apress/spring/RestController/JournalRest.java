@@ -1,4 +1,4 @@
-package com.apress.spring.RestController;
+package com.apress.spring.restController;
 
 import com.apress.spring.domain.Journal;
 import com.apress.spring.service.JournalService;
@@ -19,19 +19,19 @@ public class JournalRest {
     @Autowired
     JournalService service;
 
-    @RequestMapping(name = "/info")
+    @RequestMapping(name = "/info-pg")
     public List<Journal> showJournal() {
             List<Journal> list = new ArrayList<>();
             list = service.findAll();
         return list;
     }
-    @RequestMapping("/insert")
+    @RequestMapping("/inser-pg")
     public String home() throws ParseException {
         service.insertData();
         return "Data inserted succesfull";
     }
 
-    @RequestMapping("/del")
+    @RequestMapping("/del-pg")
     public void del() throws ParseException {
         service.deleteAll();
     }
