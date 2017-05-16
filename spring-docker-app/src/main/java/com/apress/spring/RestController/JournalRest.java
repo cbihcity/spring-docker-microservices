@@ -21,10 +21,11 @@ public class JournalRest {
 
     @RequestMapping(name = "/info-pg")
     public List<Journal> showJournal() {
-            List<Journal> list = new ArrayList<>();
-            list = service.findAll();
+        List<Journal> list = new ArrayList<>();
+        list = service.findAll();
         return list;
     }
+
     @RequestMapping("/insert-pg")
     public String home() throws ParseException {
         service.insertData();

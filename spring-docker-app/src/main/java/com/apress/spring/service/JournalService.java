@@ -31,8 +31,8 @@ public class JournalService {
 //        repo.deleteAll();
         log.info("### > Inserting Data...");
         Title title = new Title();
-        Journal j1 = new Journal("Get to know Spring Boot","Today I will learn Spring Boot","01/01/2016");
-        Journal j2 = new Journal("Simple Spring Boot Project","I will do my first Spring Boot Project","01/02/2016");
+        Journal j1 = new Journal("Get to know Spring Boot", "Today I will learn Spring Boot", "01/01/2016");
+        Journal j2 = new Journal("Simple Spring Boot Project", "I will do my first Spring Boot Project", "01/02/2016");
         j2.setTitlet(title);
         j1.setTitlet(title);
 
@@ -42,17 +42,18 @@ public class JournalService {
         log.info("> Done.");
     }
 
-    public List<Journal> findAll(){
+    public List<Journal> findAll() {
         List<Journal> list = new ArrayList<>();
         repo.findAll().forEach(journal -> list.add(journal));
         return list;
     }
 
-    public void deleteCustomJournal(String title){
+    public void deleteCustomJournal(String title) {
 
     }
-//
-    public void deleteAll(){
+
+    //
+    public void deleteAll() {
         repo.delete(repo.findAll());
     }
 //

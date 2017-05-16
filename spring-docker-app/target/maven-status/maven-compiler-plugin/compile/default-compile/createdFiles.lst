@@ -1,0 +1,7 @@
+com\apress\spring\repository\TitleRepository.class
+com\apress\spring\restController\JournalRest.class
+com\apress\spring\service\JournalService.class
+com\apress\spring\domain\Title.class
+com\apress\spring\domain\Journal.class
+com\apress\spring\repository\JournalRepository.class
+com\apress\spring\SimpleJpaAppApplication.class

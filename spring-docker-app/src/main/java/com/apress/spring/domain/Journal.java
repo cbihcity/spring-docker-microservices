@@ -1,7 +1,6 @@
 package com.apress.spring.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.Generated;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -86,7 +85,6 @@ public class Journal implements Serializable {
     public String getCreatedAsShort() {
         return format.format(created);
     }
-
 
 
     @Override
