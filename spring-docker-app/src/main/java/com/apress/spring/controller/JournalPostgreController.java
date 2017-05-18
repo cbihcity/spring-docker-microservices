@@ -1,4 +1,4 @@
-package com.apress.spring.restController;
+package com.apress.spring.controller;
 
 import com.apress.spring.domain.Journal;
 import com.apress.spring.service.JournalService;
@@ -14,7 +14,7 @@ import java.util.List;
  * Created by ihhe0417 on 5/3/2017.
  */
 @RestController
-public class JournalRest {
+public class JournalPostgreController {
 
     @Autowired
     JournalService service;
@@ -29,11 +29,12 @@ public class JournalRest {
     @RequestMapping("/insert-pg")
     public String home() throws ParseException {
         service.insertData();
-        return "Data inserted succesfully";
+        return "Data succesfully inserted!";
     }
 
     @RequestMapping("/del-pg")
-    public void del() throws ParseException {
+    public String del() throws ParseException {
         service.deleteAll();
+        return "Data succesfully deleted!";
     }
 }
