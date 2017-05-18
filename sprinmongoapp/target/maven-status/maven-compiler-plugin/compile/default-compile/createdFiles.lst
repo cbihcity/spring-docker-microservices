@@ -1,5 +1,0 @@
-com\apress\spring\controller\JournalController.class
-com\apress\spring\SimpleMongoAppApplication.class
-com\apress\spring\service\JournalServ.class
-com\apress\spring\domain\Journal.class
-com\apress\spring\repository\JournalRepository.class

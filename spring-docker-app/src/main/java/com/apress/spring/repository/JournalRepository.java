@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface JournalRepository extends CrudRepository<Journal, Long> {
 
-
     @Override
     void delete(Iterable<? extends Journal> iterable);
 }

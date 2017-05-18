@@ -25,7 +25,6 @@ public class JournalServ {
     }
 
     public void insertData() throws ParseException {
-//        repo.deleteAll();
         Journal j1 = new Journal("Get to know Spring Boot", "Today I will learn Spring Boot", "01/01/2016");
         Journal j2 = new Journal("Simple Spring Boot Project", "I will do my first Spring Boot Project", "01/02/2016");
         repository.save(j1);

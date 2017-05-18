@@ -28,7 +28,6 @@ public class JournalService {
     TitleRepository titelrepo;
 
     public void insertData() throws ParseException {
-//        repo.deleteAll();
         log.info("### > Inserting Data...");
         Title title = new Title();
         Journal j1 = new Journal("Get to know Spring Boot", "Today I will learn Spring Boot", "01/01/2016");
@@ -52,12 +51,7 @@ public class JournalService {
 
     }
 
-    //
     public void deleteAll() {
         repo.delete(repo.findAll());
     }
-//
-//    public List<Journal> findByCustomQuery(String word){
-//        return repo.findByCustomQuery(word);
-//    }
 }

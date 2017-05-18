@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * Created by ihhe0417 on 4/26/2017.
@@ -86,26 +87,19 @@ public class Journal implements Serializable {
         return format.format(created);
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Journal journal = (Journal) o;
-
-        if (id != null ? !id.equals(journal.id) : journal.id != null) return false;
-        if (title != null ? !title.equals(journal.title) : journal.title != null) return false;
-        if (created != null ? !created.equals(journal.created) : journal.created != null) return false;
-        return summary != null ? summary.equals(journal.summary) : journal.summary == null;
+        return Objects.equals(id, journal.id) &&
+                Objects.equals(title, journal.title) &&
+                Objects.equals(created, journal.created) &&
+                Objects.equals(summary, journal.summary);
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (created != null ? created.hashCode() : 0);
-        result = 31 * result + (summary != null ? summary.hashCode() : 0);
-        return result;
+        return Objects.hash(id, title, created, summary);
     }
 }
