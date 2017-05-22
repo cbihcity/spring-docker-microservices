@@ -1,0 +1,65 @@
+version: '2'
+services:
+  configserver:
+    image: cbihcity/configserver
+    container_name: configserver
+    restart: always
+    ports:
+      - "8888:8888"
+  discovery:
+    image: cbihcity/discovery
+    container_name: discovery
+    ports:
+       - "8761:8761"
+    restart: always
+    links:
+       - configserver
+  gateway:
+    image: cbihcity/gateway
+    container_name: gateway
+    restart: always
+    links:
+      - discovery
+      - configserver
+      - pg-app
+#      - mongo-app
+    ports:
+      - "4000:4000"
+    depends_on:
+      - "discovery"
+      - "configserver"
+  mongo-db:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+        - "27017:27017"
+    restart: always
+  pg-app:
+    image: cbihcity/simple-jpa-ap
+    container_name: pg-app
+    ports:
+        - "8090:8090"
+    restart: always
+    links:
+        - discovery
+        - configserver
+        - postgres
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    ports:
+        - "5432:5432"
+    restart: always
+    environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=pass
+  mongo-app:
+    image: cbihcity/mongo-app
+    container_name: mongo-app
+    ports:
+        - "1111:1111"
+    restart: always
+    links:
+          - discovery
+          - configserver
+          - mongo-db

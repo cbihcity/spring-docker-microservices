@@ -20,6 +20,9 @@
     <modules>
         <module>spring-docker-app</module>
         <module>spring-mongo-app</module>
+        <module>gateway</module>
+        <module>euricaServer</module>
+        <module>configmicroservices</module>
     </modules>
 
     <properties>

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: mongo-app
+  cloud:
+    config:
+      uri: http://configserver:8888
+      fail-fast: true
+encrypt:
+  failOnError: false
