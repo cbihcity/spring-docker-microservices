@@ -34,4 +34,9 @@ public class JournalServ {
     public void deleteAll() {
         repository.delete(repository.findAll());
     }
+
+    public Journal findJournalByTitle(String title) {
+        return repository.findByTitle(title);
+    }
+
 }

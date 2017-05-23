@@ -11,53 +11,57 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SimpleJpaAppApplicationTests {
 
     @Autowired
-    JournalRepository repo;
-    @Autowired
     TitleRepository titelrepo;
     @Autowired
     JournalService service;
 
+    List<Journal> listOfJournal;
 
     @Before
     public void insert() throws ParseException {
-        Title title = new Title();
-        Journal j1 = new Journal("Get to know Spring Boot", "Today I will learn Spring Boot", "01/01/2016");
-        Journal j2 = new Journal("Simple Spring Boot Project", "I will do my first Spring Boot Project", "01/02/2016");
-        j2.setTitlet(title);
-        j1.setTitlet(title);
-
-        title.getList().add(j1);
-        title.getList().add(j2);
-        titelrepo.save(title);
+        service.insertData();
+        listOfJournal=service.findAll();
     }
 
     @Test
     public void checkInsertedData() {
-        Assert.assertEquals("test",2,service.findAll().size());
+        Assert.assertEquals(2,service.findAll().size());
+    }
+
+    @Test
+    public void checkConsistedInsertedData() {
+        Assert.assertEquals(listOfJournal,service.findAll());
+    }
+
+    @Test
+    public void findByTitle() {
+        Assert.assertEquals(listOfJournal.get(0).getTitle(),service.findJournalByTitle("Get to know Spring Boot").getTitle());
+    }
+
+    @Test
+    public void checkDeleteAll() {
+        service.deleteAll();
+        Assert.assertEquals(0,service.findAll().size());
+    }
+
+    @Test
+    public void contextLoads() {
     }
 
     @After
     public void deleteAll(){
         service.deleteAll();
     }
-
-//    @Test
-//    public void contextLoads() {
-//    }
-
 }

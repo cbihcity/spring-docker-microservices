@@ -1,0 +1,31 @@
+version: '2'
+services:
+  configserver:
+    image: cbihcity/configserver
+    container_name: configserver
+    restart: always
+    ports:
+      - "8888:8888"
+  discovery:
+    image: cbihcity/discovery
+    container_name: discovery
+    ports:
+       - "8761:8761"
+    restart: always
+    links:
+       - configserver
+  mongo-db:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+        - "27017:27017"
+    restart: always
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    ports:
+        - "5432:5432"
+    restart: always
+    environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=pass

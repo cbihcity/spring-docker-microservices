@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Transient;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 public class Journal {
 
@@ -75,5 +76,21 @@ public class Journal {
         value.append(getCreatedAsShort());
         value.append(")");
         return value.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Journal journal = (Journal) o;
+        return Objects.equals(id, journal.id) &&
+                Objects.equals(title, journal.title) &&
+                Objects.equals(created, journal.created) &&
+                Objects.equals(summary, journal.summary);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, created, summary);
     }
 }
