@@ -66,7 +66,7 @@
                         </resource>
                     </resources>
                     <serverId>docker-hub</serverId>
-                    <pushImage>false</pushImage>
+                    <pushImage>true</pushImage>
                 </configuration>
                 <executions>
                     <execution>
