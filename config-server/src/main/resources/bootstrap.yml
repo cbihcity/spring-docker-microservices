@@ -1,6 +1,7 @@
 server:
   port: 8888
-
+service:
+    name: CONFIG-SERVER
 spring:
   application:
     name: configserver
