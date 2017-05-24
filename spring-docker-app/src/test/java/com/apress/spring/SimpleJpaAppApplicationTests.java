@@ -12,5 +12,4 @@ public class SimpleJpaAppApplicationTests {
     @Test
     public void contextLoads() {
     }
-
 }
