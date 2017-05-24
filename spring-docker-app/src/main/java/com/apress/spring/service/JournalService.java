@@ -47,8 +47,8 @@ public class JournalService {
         return list;
     }
 
-    public void deleteCustomJournal(String title) {
-
+    public Journal findJournalByTitle(String title) {
+        return repo.findByTitle(title);
     }
 
     public void deleteAll() {

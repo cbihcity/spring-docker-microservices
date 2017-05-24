@@ -3,6 +3,7 @@ package com.apress.spring.domain;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by HeroDishonest on 28.04.2017.
@@ -49,17 +50,13 @@ public class Title {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Title title = (Title) o;
-
-        if (id != null ? !id.equals(title.id) : title.id != null) return false;
-        return course != null ? course.equals(title.course) : title.course == null;
+        return Objects.equals(id, title.id) &&
+                Objects.equals(course, title.course);
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (course != null ? course.hashCode() : 0);
-        return result;
+        return Objects.hash(id, course);
     }
 }
