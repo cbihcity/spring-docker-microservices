@@ -11,3 +11,4 @@ spring:
       server:
         git:
           uri: https://github.com/cbihcity/spring-boot-microservice-config
+          search-paths: configs
