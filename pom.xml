@@ -18,7 +18,7 @@
     </parent>
 
     <modules>
-        <module>spring-docker-app</module>
+        <module>spring-postgre-app</module>
         <module>spring-mongo-app</module>
         <module>gateway</module>
         <module>eurica-server</module>
